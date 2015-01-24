@@ -13,13 +13,13 @@ class UpdateInitramfs(Task):
 	@classmethod
 	def run(cls, info):
 		from ..tools import log_check_call
-                log_check_call(['chroot', info.root, 'update-initramfs', '-u'])
+		log_check_call(['chroot', info.root, 'update-initramfs', '-u'])
 
 
 class BlackListModules(Task):
 	description = 'Blacklisting kernel modules'
 	phase = phases.system_modification
-	successors = [ UpdateInitramfs ]
+	successors = [UpdateInitramfs]
 
 	@classmethod
 	def run(cls, info):
